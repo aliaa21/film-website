@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie App</title>
+  <link rel="shortcut icon" href="./images/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+<!-- ---------------button up ------------------->
+<div class="button-up">
+  <i class=" fa-solid fa-arrow-alt-circle-up text-info "></i>
+
+
+</div>
+
+
+
+
+
+  <!-------------- loading screen ------------------>
+
+  <div id="loading" class=" justify-content-center align-items-center">
+    <span class="loader"></span>
+  </div>
+
+  <!-- end of loading screen -->
+
+
+
+
+  <!-------------------- nav section ------------------------>
+
+  <div class="parent-option">
+
+
+    <nav class="position-fixed top-0 start-0 vh-100 text-center">
+      <div class="nav-logo">
+        <img src="images/logo.png" class="img-fluid" alt="">
+      </div>
+      <div class="nav-menu">
+        <i class="fa-solid fa-align-justify "></i>
+      </div>
+      <div class="nav-social">
+        <i class="fa-solid fa-globe"></i>
+        <i class="fa-solid fa-share-nodes"></i>
+      </div>
+    </nav>
+    <div class="side-nav position-fixed top-0 start-0 vh-100">
+      <div class="menu">
+        <ul>
+          <li><a class="nav-link" attr="nowPlaying">Now playing</a></li>
+          <li><a class="nav-link" attr="popular">Popular</a></li>
+          <li><a class="nav-link" attr="topRated">Top Rated</a></li>
+          <li> <a class="nav-link" attr="trending">Trending</a></li>
+          <li><a class="nav-link" attr="upcoming">Upcoming</a></li>
+          <li><a class="nav-link" id="contact-us" section="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="copyrights">
+        <div class="rights-social">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-solid fa-globe"></i></a>
+        </div>
+        <p class="pt-3">Copyright © 2022 All Rights Reserved. <br>Created by <a href='#'
+            class="link-danger fw-bold" target="_blank">Aliaa Adel</a></p>
+      </div>
+    </div>
+
+  </div>
+  
+
+
+  <!-- end of nav section -->
+
+
+  <!---------------------- start of home content ---------------------->
+
+
+  <!-- search -->
+  <div  id="home" class="container py-5 ">
+    <input id="search" type="search" placeholder="Search"
+      class="form-control w-50 mx-auto bg-transparent rounded-pill shadow-none border-white px-3" style="color: white;">
+
+    <div class="row g-4 mt-3 text-white ">
+
+    </div>
+
+
+
+
+  </div>
+
+
+  <!-- end of home content -->
+
+  <!--------------------- contact us --------------------------->
+
+  <div id="contact" class="container text-white py-5">
+    <h2>Contact US</h2>
+    <form>
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <input type="text" required id="name" maxlength="37" class="form-control mt-4" placeholder="Enter Your Name">
+          <span Class="error" class="animate__animated"></span>
+        </div>
+        <div class="col-md-6">
+          <input type="email" required id="email" class="form-control mt-4" placeholder="Enter Your Email">
+          <span Class="error" class="animate__animated"></span>
+        </div>
+        <div class="col-md-6">
+          <input type="number" required id="phone" class="form-control mt-4 phone" placeholder="Enter Your Phone">
+          <span Class="error" class="animate__animated"></span>
+        </div>
+        <div class="col-md-6">
+          <input type="number" required id="age" class="form-control mt-4" placeholder="Enter Your Age">
+          <span Class="error" class="animate__animated"></span>
+        </div>
+        <div class="col-md-6 position-relative">
+          <input type="password" required id="password" class="form-control mt-4" placeholder="Enter Your Password">
+          <span Class="error" class="animate__animated"></span>
+          <span class="showPass"><i data-show="show" class="fa-solid fa-eye-slash"></i></span>
+        </div>
+        <div class="col-md-6">
+          <input type="password" required id="repassword" class="form-control mt-4" placeholder="ReEnter Password">
+          <span Class="error" class="animate__animated"></span>
+        </div>
+        <div class="col-md-12  mt-4">
+          <button type="submit" class="form-btn rounded-2 mb-3 animate__animated">Submit</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+
+
+  
+
+
+ 
+  
+
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
