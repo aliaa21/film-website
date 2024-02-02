@@ -511,7 +511,9 @@ $('.button-up i').on('click', function () {
 $('#contact-us').on('click', function () {
 
 
-    $('body , html').animate({ scrollTop: 4202 }, 2000);
+
+
+    $('body , html').animate({ scrollTop: 15028 }, 5000);
 
 })
 
