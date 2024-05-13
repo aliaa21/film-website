@@ -1,9 +1,23 @@
 let dataarray = [];
-let row = document.querySelector('.row');
+let row = document.querySelector('.row1');
 let links = document.querySelectorAll('.menu .nav-link');
 let imgPath = 'https://image.tmdb.org/t/p/w500';
 let stars;
 let searchInput = document.querySelector('#search');
+let home = document.querySelector('#home');
+let videoPath = 'https://www.youtube.com/embed/';
+
+
+// Create a link element1
+var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = 'https://unpkg.com/open-props/open-props.min.css';
+document.head.appendChild(link);
+
+
+
+
+
 
 
 
@@ -65,6 +79,26 @@ get_data('popular');
 
 
 
+// ----------------------------------------hide and show home--------------------------------------------------
+
+
+function hide_home() {
+    document.getElementById('details').classList.add('d-none');
+    home.classList.replace('d-block', 'd-none');
+    searchInput.classList.replace('d-none', 'd-block');
+    row.classList.remove('d-none');
+
+}
+
+function show_home() {
+
+    document.getElementById('details').classList.add('d-none');
+    home.classList.replace('d-none', 'd-block');
+    searchInput.classList.replace('d-block', 'd-none');
+    row.classList.add('d-none');
+
+}
+
 
 
 
@@ -76,22 +110,28 @@ for (var i = 0; i < links.length; i++) {
     links[i].addEventListener('click', function (e) {
 
         // console.log(e.target.innerText)
-
-        if (e.target.innerText == 'Top Rated') {
-
+        if (e.target.innerText == 'Home') {
+            show_home();
+        }
+        else if (e.target.innerText == 'Top Rated') {
+            hide_home();
             get_data('top_rated');
+
         }
         else if (e.target.innerText == 'Now playing') {
+            hide_home();
             get_data('now_playing');
         }
         else if (e.target.innerText == 'Upcoming') {
+            hide_home();
             get_data('upcoming');
         }
         else if (e.target.innerText == 'Popular') {
+            hide_home();
             get_data('popular');
         }
 
-        get_data(e.target.innerText);
+        // get_data(e.target.innerText);
     })
 }
 
@@ -175,7 +215,182 @@ function checkMovieVote(movie) {
 }
 
 
+// ----------------------back arrow -----------------------------------
+let arrow = document.querySelector('#arrow');
 
+
+function Arrow() {
+
+    window.open("index.html", "_self");
+
+
+}
+
+
+
+
+
+
+// ------------------------display details----------------------------------
+
+
+
+
+
+async function display_details(id) {
+    try {
+    document.getElementById('details').classList.remove('d-none');
+
+        let response1 = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=eba8b9a7199efdcb0ca1f96879b83c44`);
+        let response2 = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=eba8b9a7199efdcb0ca1f96879b83c44`);
+        let response3 = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=eba8b9a7199efdcb0ca1f96879b83c44`);
+        let response4 = await fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=eba8b9a7199efdcb0ca1f96879b83c44`);
+
+
+        if (!response1.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        if (!response2.ok) {
+            throw new Error(`HTTP error! Status: ${response2.status}`);
+        }
+        if (!response3.ok) {
+            throw new Error(`HTTP error! Status: ${response3.status}`);
+        }
+        if (!response4.ok) {
+            throw new Error(`HTTP error! Status: ${response3.status}`);
+        }
+
+        let data = await response1.json();
+        let videos = await response2.json();
+        let images = await response3.json();
+        let recomend = await response4.json();
+
+
+        console.log(videos);
+        console.log(data);
+        searchInput.classList.replace('d-block', 'd-none');
+        row.classList.add('d-none');
+
+        let div = '';
+        let elements = '';
+        let posters='';
+        let recomendations='';
+        for (let i = 0; i < images.backdrops.length; i++){
+            elements+=`   <li class="track__item">
+            <img src="${imgPath+images.backdrops[i].file_path}" alt="" width="300" height="300" />
+          </li>`
+        }
+        for (let i = 10; i < 13; i++){
+             posters+=`  <img src="${imgPath+images.posters[i].file_path}"> `
+        }
+
+        for (let i = 0; i < 3; i++){
+            recomendations+=
+          `  <div class="card me-3 ">
+             
+          <img src="${imgPath+recomend.results[i].poster_path}" class="card-img-top" >
+         </div>`
+            
+        }
+        
+      
+
+        div += `
+            <div class="movie-detail position-relative" style="background-image:  linear-gradient(rgb(0,0,0,0.8), rgb(0,0,0,0.8)),url(${imgPath + data.backdrop_path});" id="landscape">
+            <div class="trail position-absolute">
+            <iframe id="trail" class="d-none" width="560" height="315" src="${videoPath + videos.results[0].key}"
+                title="YouTube video player" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+          </div>
+                <div class="arrow position-absolute">
+                    <i id="arrow" onclick="Arrow()" class="fa-solid fa-circle-chevron-left"></i>
+              </div>
+            <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 film-poster">
+                            <img id="poster"  src="${imgPath + data.poster_path}" alt="" class="w-75">
+                        </div>
+                        <div class="col-md-6 film-content">
+                            <div class="title">
+                                <h1 class="text-white" id="Ptitle">${data.original_title}</h1>
+                            </div>
+
+                            <div class="trailer">
+                                <h3 class="">Trailer</h3>
+                                <a onclick="showT()" id="trailer" class="btn btn-hover">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    <span id="watchB">Watch Trailer</span>
+                                </a>
+                                <a class="btn btn-hover">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                    <span id="watchB">Watch Now</span>
+                                </a>
+                            </div>
+
+                            <div class="rating">
+                                <h3>Rating</h3>
+                                <div class="movie-info">
+                                    <i class="fa-solid fa-star fs-3"></i>
+                                    <span id="rating">${data.vote_average}</span>
+                                </div>
+                            </div>
+
+                            <div class="overview overflow-y-scroll">
+                                <h3>Over View</h3>
+                                <p class="text-white" id="overview">${data.overview}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="section-header">
+                    Movie Backdrops
+                </div>
+                <div class="track-wrapper">
+                <ul class="track">
+            ${elements}
+                </ul>
+            </div>
+            <div class="section-header mt-5 mb-5">
+            Movie Posters
+        </div>
+
+        <div class="gallery">
+          ${posters}
+      
+          </div>
+            </div>
+
+            <div class="section-header mt-5 mb-5">
+            Recomendations
+        </div>
+
+
+        <div class="card-group mb-5 ">
+        ${recomendations}
+        
+           
+          </div>
+
+
+            `;
+
+        // Assuming 'details' is the ID of the element where you want to display details
+        let details = document.getElementById('details');
+        if (!details) {
+            throw new Error("Details element not found!");
+        }
+        details.innerHTML = div;
+    } catch (error) {
+        console.error('Error displaying details:', error.message);
+        // Handle the error, show a message to the user or perform any necessary action
+    }
+}
 
 
 
@@ -184,6 +399,9 @@ function checkMovieVote(movie) {
 
 
 function display_data() {
+
+    // row.classList.remove('d-none');
+
     let div = '';
     for (let i = 0; i < dataarray.length; i++) {
         let movieOverView = '';
@@ -204,9 +422,10 @@ function display_data() {
         }
 
         div += ` 
+        
         <div class="col-lg-4 col-md-6 col-sm-12 box-content">
         
-            <div class="bg-info cardimage">
+            <div class="bg-info cardimage" onclick="display_details(${dataarray[i].id})">
                 <img src='${movie_image}' class='w-100'>
                 
                 <div class="overlay">
@@ -529,6 +748,8 @@ $('#contact-us').on('click', function () {
 
 // });
 
+
+
 $(document).on('mouseenter', '.cardimage', function () {
     var $desc = $(this).find('.overlay .desc');
 
@@ -538,6 +759,8 @@ $(document).on('mouseenter', '.cardimage', function () {
         $desc.css({ 'transform': 'translateY(0)' });
     }
 });
+
+
 
 $('.cardimage').hover(
     function () {
@@ -566,6 +789,62 @@ function getTranslateY(element) {
 
 
 
+// ------------------card payment----------------------
+
+
+function showLoading(event, button) {
+    event.preventDefault(); // Prevent form submission
+
+    button.innerHTML = "Processing Payment...";
+
+    // Simulate payment processing
+    setTimeout(function () {
+        button.innerHTML = "Payment completed.";
+        button.style.backgroundColor = "green"; // Change button color to green
+
+        // Check if payment is completed
+        if (button.innerHTML === "Payment completed.") {
+            // Redirect to index page after payment completed
+            setTimeout(function () {
+                window.open("index.html", "_self");
+            }, 2000); // Redirect after 2 seconds
+        }
+    }, 3000); // Simulate payment processing for 3 seconds
+}
+
+
+function validatename(input){
+    input.value = input.value.toUpperCase();
+    input.value = input.value.replace(/[^a-zA-Z\s]+/g, '').replace(/\s{2,}/g, ' ');
+
+    if (input.value.length > 20) {
+        // If so, truncate the input to 14 characters
+        input.value = input.value.slice(0, 20);
+    }
+}
+
+function validateInput(input) {
+    // Remove any non-numeric characters
+    input.value = input.value.replace(/[^\d]/g, '');
+
+    // Check if the input length is greater than 14
+    if (input.value.length > 16) {
+        // If so, truncate the input to 14 characters
+        input.value = input.value.slice(0, 16);
+    }
+
+}
+function validateCVV(input) {
+    // Remove any non-numeric characters
+    input.value = input.value.replace(/[^\d]/g, '');
+
+    // Check if the input length is greater than 14
+    if (input.value.length > 3) {
+        // If so, truncate the input to 14 characters
+        input.value = input.value.slice(0, 3);
+    }
+
+}
 
 
 
@@ -574,7 +853,17 @@ function getTranslateY(element) {
 
 
 
+//-----------------------------------trail vid--------------------------------------------
+function showT() {
+    document.querySelector('#trail').classList.toggle('d-none');
+    let Btn = document.querySelector('#watchB');
+    if (Btn.innerHTML == 'Watch Trailer') {
+        Btn.innerHTML = 'Hide Trailer';
 
+    } else {
+        Btn.innerHTML = 'Watch Trailer';
+    }
+}
 
 
 

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel='stylesheet' href='https://unpkg.com/open-props/open-props.min.css'>
+</head>
+
+<body>
+
+    <div class="movie-detail position-relative w-75 m-auto mt-4"
+        style="background-image: linear-gradient(rgb(0,0,0,0.8), rgb(0,0,0,0.8)), url(./harry-potter-3.webp);"
+        id="landscape">
+        <div class="trail position-absolute">
+            <iframe id="trail" class="d-none" width="500" height="315"
+                src="https://www.youtube.com/embed/rf6Z0dKqrA8?si=sKJwjEXuMkdbyFd4" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+
+        </div>
+        <div class="arrow position-absolute">
+            <i id="arrow" onclick="Arrow()" class="fa-solid fa-circle-chevron-left"></i>
+        </div>
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-6 film-poster">
+                    <img id="poster" src="./e74a0985bdb85ee92b55b2b308cd21d2.png" alt="" class="w-75">
+                </div>
+                <div class="col-md-6 film-content">
+                    <div class="title">
+                        <h1 class="text-white" id="Ptitle">Harry Potter</h1>
+                    </div>
+
+                    <div class="trailer">
+                        <h3 class="">Trailer</h3>
+                        <a onclick="showT()" id="trailer" class="btn btn-hover">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <span id="watchB">Watch Trailer</span>
+                        </a>
+                        <a class="btn btn-hover" href="movie.html" >
+                            <i class="fa-solid fa-circle-play"></i>
+                            <span id="watchB">Watch Now</span>
+                        </a>
+                    </div>
+
+                    <div class="rating">
+                        <h3>Rating</h3>
+                        <div class="movie-info">
+                            <i class="fa-solid fa-star fs-3"></i>
+                            <span id="rating">9.5</span>
+                        </div>
+                    </div>
+
+                    <div class="overview overflow-y-scroll">
+                        <h3>Over View</h3>
+                        <p class="text-white" id="overview">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Aperiam animi voluptatibus omnis sapiente pariatur autem rem dolorum, facere consequuntur
+                            distinctio!</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <iframe width="1000" height="755" src="https://www.youtube.com/embed/6QE8dXq9SOE?si=09fPWJG_vJ7UlKds" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+
+        </div>
+    </div>
+
+    <!----------------------------- characters----------------- -->
+
+    <header>
+        <h1>Harry Potter Characters</h1>
+    </header>
+
+    <main class="w-75 m-auto mb-5">
+        <div class="hero active">
+            <h1>Harry Potter</h1>
+        </div>
+        <div class="hero">
+            <h1>Hermione Granger</h1>
+        </div>
+        <div class="hero">
+            <h1>Ron Weasley</h1>
+        </div>
+        <div class="hero">
+            <h1>Severus Snape</h1>
+        </div>
+        <div class="hero">
+            <h1>Rubeus Hagrid</h1>
+        </div>
+        <div class="hero">
+            <h1>Bellatrix Lestrange</h1>
+        </div>
+        <div class="hero">
+            <h1>Sirius Black</h1>
+        </div>
+        <div class="hero">
+            <h1>Albus Dumbledore</h1>
+        </div>
+        <div class="hero">
+            <h1>Draco Malfoy</h1>
+        </div>
+        <div class="hero">
+            <h1>Dobby</h1>
+        </div>
+        <div class="hero">
+            <h1>Neville Longbottom</h1>
+        </div>
+        <div class="hero">
+            <h1>Lord Voldemort</h1>
+        </div>
+    </main>
+
+
+
+
+    <!--------------------------- posters ---------------------------------->
+    <div class="container">
+        <div class="section-header">
+            Movie Backdrops
+        </div>
+        <div class="track-wrapper">
+            <ul class="track">
+                <li class="track__item">
+                    <img src="./images/images/harry-potter-desktop-vtho1d6dbpcfzv5v.jpg"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="./images/images/harry-potter-4k-3840-x-2160-wallpaper-6ef5xse7q05bgh2j.jpg"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1536152470836-b943b246224c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDYzNw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="./images/images/0daf5480a83387afac3532f047396c55.jpeg"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="./harry-potter-3.webp"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY0Mg&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1421930866250-aa0594cea05c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY0NA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1459213599465-03ab6a4d5931?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY0NQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY0Nw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1453791052107-5c843da62d97?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY0OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1471978445661-ad6ec1f5ba50?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY1MQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1523978591478-c753949ff840?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY1Mg&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1489549132488-d00b7eee80f1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY1NA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY1NQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY1Nw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY1OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1495312040802-a929cd14a6ab?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY1OQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1465147264724-326b45c3c59b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY2MQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1421930866250-aa0594cea05c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY2Mg&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300" />
+                </li>
+                <li class="track__item">
+                    <img src="https://images.unsplash.com/photo-1584148721201-b6432e0d5106?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY1OTA1NDY2Mw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300"
+                        alt="" width="300" height="300">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="section-header mt-5 mb-5">
+            Movie Posters
+        </div>
+
+        <div class="gallery">
+            <img src="./images/images/w1.jpg" alt="a lovely kiss in the night">
+            <img src="./images/images/w2.jpg" alt="a women inside a car">
+            <img src="./images/images/w3.jpg" alt="a baby">
+          </div>
+    </div>
+
+    <div class="container">
+        <div class="section-header mt-5 mb-5">
+            Recomendations
+        </div>
+
+
+        <div class="card-group mb-5 ">
+            <div class="card me-3 ">
+              <img src="./images/images/movies/blood-shot.jpg" class="card-img-top" alt="...">
+              
+            
+            </div>
+            <div class="card me-3">
+              <img src="./images/images/movies/12 angery.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card">
+              <img src="./images/images/no way up.jpg" class="card-img-top" alt="...">
+            </div>
+          </div>
+    </div>
+
+
+
+
+
+    <script src="js/app.js"></script>
+    <script src="js/utiles.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+
+</body>
+
+</html>
